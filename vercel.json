@@ -2,14 +2,27 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/node"
+      "src": "frontend/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "backend/app.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "backend/app.py"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "frontend/$1"
     }
-  ]
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "/api",
+    "FLASK_ENV": "production",
+    "FLASK_APP": "backend/app.py"
+  }
 }
