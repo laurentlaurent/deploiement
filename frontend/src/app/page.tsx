@@ -10,8 +10,13 @@ import { FlashcardEditor } from '@/components/flashcards/flashcard-editor';
 import { QuizMode } from '@/components/flashcards/quiz-mode';
 import axios from 'axios';
 
-// Define API backend URL
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+// Define API backend URL - make sure to use the environment variable
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://deploiement-a0hl.onrender.com/api';
+
+// Configurer Axios avec des valeurs par défaut
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.headers.common['Accept'] = 'application/json';
+axios.defaults.withCredentials = false; // Désactivé pour les API CORS simples
 
 // Flashcard and Flashcard Set types
 type Flashcard = {

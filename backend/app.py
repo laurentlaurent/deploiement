@@ -23,7 +23,8 @@ else:
     print("⚠️ Attention: GEMINI_API_KEY n'est pas définie dans les variables d'environnement")
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})  # Permet les requêtes cross-origin pour le développement
+# Configurer CORS pour accepter les requêtes de n'importe quelle origine
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
