@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_APP
+        value: app.py
+      - key: GEMINI_API_KEY
+        fromDatabase: GEMINI_API_KEY
+    autoDeploy: true
+    repo:
+      branch: main
+      rootDir: backend
