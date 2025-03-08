@@ -17,11 +17,10 @@ type Flashcard = {
 
 type FlashcardViewerProps = {
   flashcards: Flashcard[];
-  setId: string;  // Add setId prop
   onEditCard?: (card: Flashcard) => void;
 };
 
-export function FlashcardViewer({ flashcards, setId, onEditCard }: FlashcardViewerProps) {
+export function FlashcardViewer({ flashcards, onEditCard }: FlashcardViewerProps) {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [completed, setCompleted] = useState(false);

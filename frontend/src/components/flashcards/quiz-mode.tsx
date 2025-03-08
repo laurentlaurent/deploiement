@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -56,7 +56,7 @@ export function QuizMode({ flashcards, onComplete }: QuizModeProps) {
   const [timerActive, setTimerActive] = useState(true);
   const [completed, setCompleted] = useState(false);
 
-  const currentCard = flashcards[currentCardIndex] || { tags: [] };
+  const currentCard = useMemo(() => flashcards[currentCardIndex] || { tags: [] }, [currentCardIndex, flashcards]);
 
   // Initialize options for multiple choice
   useEffect(() => {
