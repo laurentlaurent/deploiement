@@ -4,16 +4,12 @@
     {
       "src": "frontend/package.json",
       "use": "@vercel/next"
-    },
-    {
-      "src": "backend/app.py",
-      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/app.py"
+      "dest": "https://deploiement-a0hl.onrender.com/api/$1"
     },
     {
       "src": "/(.*)",
@@ -21,8 +17,6 @@
     }
   ],
   "env": {
-    "NEXT_PUBLIC_API_URL": "/api",
-    "FLASK_ENV": "production",
-    "FLASK_APP": "backend/app.py"
+    "NEXT_PUBLIC_API_URL": "https://deploiement-a0hl.onrender.com/api"
   }
 }
