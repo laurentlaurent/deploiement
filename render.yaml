@@ -4,15 +4,15 @@ services:
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python app.py"
-    envVars:
+    startCommand: "gunicorn app:app"
+    envVars:mand: ""
       - key: FLASK_ENV
         value: production
-      - key: FLASK_APP
-        value: app.py
+      - key: FLASK_APPion
+        value: app.pyP
       - key: GEMINI_API_KEY
         fromDatabase: GEMINI_API_KEY
-    autoDeploy: true
-    repo:
+    autoDeploy: true: GEMINI_API_KEY
+    repo:eploy: true
       branch: main
       rootDir: backend
