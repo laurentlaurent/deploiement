@@ -228,7 +228,6 @@ export default function Home() {
                 {currentView === 'view' ? (
                   <FlashcardViewer 
                     flashcards={selectedSet.flashcards}
-                    setId={selectedSet.id}
                     onEditCard={handleEditCard}
                   />
                 ) : (
